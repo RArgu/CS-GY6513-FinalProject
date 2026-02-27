@@ -59,6 +59,38 @@ Two sub-directions here:
 
 ---
 
+### Idea 4: Ideas from a security / fraud detection pov
+### 4A - Detecting Wash Trading
+How much of a prediction market’s volume is "fake" (wash trading) and can we detect these manipulative clusters using graph-based transaction analysis?
+In decentralized markets (like Polymarket) users often trade with themselves to create a false sense of liquidity. We can build a detection engine that identifies these circular trading patterns.
+Technologies & Tools:
+- Spark GraphX (via Spark SQL/DataFrames): To treat traders as "nodes" and transactions as "edges” we can then search for closed loops (A -> B -> C -> A).
+- Cassandra: To store the blacklist of suspicious wallets for sub-millisecond querying. (Question - do we really need cassandra here ??)
+- HDFS & MapReduce: To process raw blockchain transaction logs to find historical patterns of volume manipulation (Question - can we do this with apache spark rather than hdfs/map reduce)
+m
+### 4B - Detecting Multi Account Collusion
+Can we use graph based clustering to find groups of accounts that always bet together to manipulate the price? (basically find coordination clusters).
+Technical logic - look for temporal and behavioral Synchronicity. If 4 accounts always trade the same geopolitical event within milliseconds of each othe, or if they were all funded by the same master wallet they are colluding.
+Technologies & Tools (Need to think on this but a rough idea - )
+- HDFS & MapReduce: To perform a "Self-Join" on terabytes of transaction data to find accounts with >90% temporal overlap in their trades.
+- Apache Tez & Hive: To create a "Risk Score" table for every wallet address based on their proximity to known bad actors.
+- WEKA: To use the SimpleKMeans algorithm to cluster wallets based on bet size, timing, and asset choice
+
+
+---
+## Tools and Technologies that will be taught in class - 
+1. HDFS, Map Reduce: Hadoop
+2. Apache Spark - Saprk SQL, Spark Data Frame, Map Reduce, Streaming (Jupyter Hub)
+3. DASK - an acronym for Dansk Aritmetisk Sekvens Kalkulator or Danish Arithmetic Sequence Calculator. (Jupyter Hub)
+4. Virtualization and No-SQL Database-Docker and Cassandra Database
+5. HIVE – Hive SQL (Data Warehouse env. - (NYU Dataproc Hadoop Ecosystem)
+6. Apache Tez and DAG - (NYU Dataproc Hadoop Ecosystem)
+7. Document Databases ( Mongo DB and Compass, Mongo query )
+8. Apache Spark Data Visualization: Matplotlib (JypyterHub)
+9. Apache Spark ML: MLlib (Jupyter Hub)
+10. Data Mining with Big Data : WEKA
+
+
 ## Next Steps
 
 - **Wednesday:** Discuss ideas with teammate and select direction.
