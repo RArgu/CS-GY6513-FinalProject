@@ -76,6 +76,19 @@ Technologies & Tools (Need to think on this but a rough idea - )
 - Apache Tez & Hive: To create a "Risk Score" table for every wallet address based on their proximity to known bad actors.
 - WEKA: To use the SimpleKMeans algorithm to cluster wallets based on bet size, timing, and asset choice
 
+### 4C - Detecting Insider Trading
+Can we identify wallets that consistently place large, correct bets on prediction market outcomes *before* the information becomes public — and flag them as likely insider traders?
+The idea is straightforward: in prediction markets, insider trading looks like someone who knows the outcome before resolution and bets accordingly. If a wallet repeatedly buys YES on a geopolitical event hours before a news break, or dumps a position right before a surprise resolution, that's a statistical anomaly worth flagging. We build a pipeline that scores every wallet's "prescience" — how often they were early AND correct — and surfaces the outliers.
+Technical logic - for each resolved contract, look backwards from the resolution timestamp and identify wallets that made large directional bets in a suspicious window (e.g., 1-24 hours before outcome became public). Cross-reference bet timing against a news timeline (when did the first credible report appear?). Wallets that are consistently early and correct across multiple contracts are flagged.
+Technologies & Tools:
+- Apache Spark (Streaming + SQL): To ingest and join two streams — prediction market transactions and a news/event feed (GDELT or NewsAPI). Spark SQL to window-join trades against news timestamps and compute per-wallet "early-and-correct" scores.
+- HDFS & MapReduce: To do the heavy historical backfill — process all resolved contracts and their full trade histories to retroactively score every wallet that ever traded on them.
+- Hive & Apache Tez: To build and query a data warehouse of resolved contracts, their resolution timestamps, first-known-news timestamps, and per-wallet scoring tables. Tez's DAG execution makes the multi-join queries (contracts ⟕ trades ⟕ news timeline) efficient.
+- MongoDB: To store unstructured news event documents (headline, source, timestamp, entities mentioned) that get matched against contract topics. Flexible schema handles the variety of news sources.
+- Spark MLlib: To train a binary classifier (insider vs. normal trader) using features like average time-before-resolution of bets, win rate, bet size relative to wallet history, and number of contracts traded. Flag wallets above a confidence threshold.
+- WEKA: To do exploratory clustering on flagged wallets — do insider traders cluster into types (e.g., "single-event insiders" vs. "serial insiders" vs. "front-runners")?
+- Matplotlib (Spark visualization): To produce per-contract timelines showing price movement, trade volume, news events, and flagged wallet activity overlaid — the "smoking gun" visualization.
+
 
 ---
 ## Tools and Technologies that will be taught in class - 
