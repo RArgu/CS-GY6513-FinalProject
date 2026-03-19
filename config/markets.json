@@ -1,0 +1,127 @@
+{
+  "markets": [
+    {
+      "slug": "us-strikes-iran-feb28",
+      "event_id": 114242,
+      "event_slug": "us-strikes-iran-by",
+      "question": "US strikes Iran by February 28, 2026?",
+      "condition_id": "0x3488f31e6449f9803f99a8b5dd232c7ad883637f1c86e6953305a2ef19c77f20",
+      "clob_token_ids": {
+        "yes": "110790003121442365126855864076707686014650523258783405996925622264696084778807",
+        "no": "10832696757358093775468120009000761778513405247768868107262967513475277652998"
+      },
+      "status": "resolved",
+      "outcome": "YES",
+      "resolution_date": "2026-02-28",
+      "volume": 89652867,
+      "collection": {
+        "mode": "one_shot",
+        "price_fidelity_minutes": 60,
+        "collect_from": "2026-01-19",
+        "collect_to": "2026-03-01"
+      }
+    },
+    {
+      "slug": "maduro-out-jan31",
+      "event_id": 16180,
+      "event_slug": "maduro-out-in-2025",
+      "question": "Maduro out by January 31, 2026?",
+      "condition_id": "0x580adc1327de9bf7c179ef5aaffa3377bb5cb252b7d6390b027172d43fd6f993",
+      "clob_token_ids": {
+        "yes": "24918067747661759048720135607687934209172945708698786072564741153847301974566",
+        "no": "98590363695810976489755414330258191966783137178752226225745237702303580425394"
+      },
+      "status": "resolved",
+      "outcome": "YES",
+      "resolution_date": "2026-01-03",
+      "volume": 10966928,
+      "collection": {
+        "mode": "one_shot",
+        "price_fidelity_minutes": 60,
+        "collect_from": "2025-12-03",
+        "collect_to": "2026-01-03"
+      }
+    },
+    {
+      "slug": "khamenei-out-feb28",
+      "event_id": 162818,
+      "event_slug": "khamenei-out-as-supreme-leader-of-iran-by-february-28",
+      "question": "Khamenei out as Supreme Leader of Iran by February 28?",
+      "condition_id": "0xd4bbf7f6707c67beb736135ad32a41f6db41f8ae52d3ac4919650de9eeb94ed8",
+      "clob_token_ids": {
+        "yes": "39317885422026394259056328144566743331998444273202427934141325790266108570112",
+        "no": "37975265083682450969967223199653164268542375291978582835346444673615244164455"
+      },
+      "status": "resolved",
+      "outcome": "YES",
+      "resolution_date": "2026-03-04",
+      "volume": 131114970,
+      "collection": {
+        "mode": "one_shot",
+        "price_fidelity_minutes": 60,
+        "collect_from": "2026-02-04",
+        "collect_to": "2026-03-04"
+      }
+    },
+    {
+      "slug": "us-forces-iran-mar31",
+      "event_id": 158299,
+      "event_slug": "us-forces-enter-iran-by",
+      "question": "US forces enter Iran by March 31?",
+      "condition_id": "0x306d10d4a4d51b41910dbc779ca00908bd917c131541c5c42bbbc736258d2d56",
+      "clob_token_ids": {
+        "yes": "42750054381142639205639663180818682570869285140532640407891991570656047928885",
+        "no": "81697486240392901899167649997008736380137911909662773455994395620863894931973"
+      },
+      "status": "active",
+      "outcome": null,
+      "resolution_date": null,
+      "volume": 11643545,
+      "collection": {
+        "mode": "cron",
+        "price_fidelity_minutes": 360,
+        "interval_hours": 6
+      }
+    },
+    {
+      "slug": "us-iran-ceasefire-jun30",
+      "event_id": 236840,
+      "event_slug": "us-x-iran-ceasefire-by",
+      "question": "US x Iran ceasefire by June 30?",
+      "condition_id": "0x81b06cb917c9a2aabc67a7765bc3c640e88a699bbf451b29915049c0766cde04",
+      "clob_token_ids": {
+        "yes": "91234452361450605263734013436205650165110345459845371466629272470861583403438",
+        "no": "11578806222441353507719115176638735578970248989819859302635595162497755626384"
+      },
+      "status": "active",
+      "outcome": null,
+      "resolution_date": null,
+      "volume": 1170411,
+      "collection": {
+        "mode": "cron",
+        "price_fidelity_minutes": 360,
+        "interval_hours": 6
+      }
+    },
+    {
+      "slug": "china-invades-taiwan-2026",
+      "event_id": 34044,
+      "event_slug": "will-china-invade-taiwan-before-2027",
+      "question": "Will China invade Taiwan by end of 2026?",
+      "condition_id": "0xd9fb1184af0064e5e34b129f5b79afa5a17b7e32f2953ab05efed82315fee6d4",
+      "clob_token_ids": {
+        "yes": "94559586571241563470235664821564670251180951772614764383113614156422396181162",
+        "no": "90772332434487149264114862115632028379978765245278600275169585501290867536237"
+      },
+      "status": "active",
+      "outcome": null,
+      "resolution_date": null,
+      "volume": 11456663,
+      "collection": {
+        "mode": "cron",
+        "price_fidelity_minutes": 360,
+        "interval_hours": 6
+      }
+    }
+  ]
+}
