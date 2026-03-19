@@ -1,0 +1,31 @@
+Teammate recs
+
+So I have gone through the project and the Abstract, Problem Statement&Objective and Data Source all look great and good to go.
+I would however like to add that we can streamline our technology stack more -
+
+Proposed Tech Stack - 
+Step 1 — PySpark pulls from APIs 
+↓ 
+Step 2 — HDFS stores the raw data 
+↓ 
+Step 3 — PySpark cleans and processes, writes output back to HDFS 
+↓ 
+Step 4 — Hive creates tables on top of HDFS files, runs SQL joins between trades + GDELT news 
+↓ 
+Step 5 — PySpark reads from Hive tables for spike detection, scoring, ML classification 
+↓ 
+Step 6 — Results written back to HDFS/Hive 
+↓ 
+Step 7 — Matplotlib reads final results and visualizes
+
+Key thing is to use PySpark because 
+	- better & faster than map/reduce
+	- Spark SQL and Spark MLlib are part of PySpark
+
+Also say that we are able to implement this before time then we can add live ingestion (rather than current batch system) without much change. We can use - Spark Structured Streaming which is also a part of PySpark and instead of pulling data once in a batch PySpark continuously polls the Polymarket API at an interval (like every 1 minute, every 5 minutes etc) and processes each micro batch through the same pipeline logic.
+We should build the batch version first and get it working completely. The streaming addition is not much extra work once the core pipeline is solid because - 
+* Same processing logic
+* Same storage layer
+* Same ML models
+* Just different ingestion method at the top
+And swapping in Spark Structured Streaming should probably take a week at most.

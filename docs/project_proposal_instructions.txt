@@ -1,0 +1,11 @@
+Please submit following towards your project proposal:
+
+    Title page with all student’s name, Net-Id, course name and section, semester term
+    Project abstract
+    Problem Statement and Objectives
+    Data source name and link, Data file size, and approximate number of records (should be in few thousands to million records)
+    Proposed technologies, Programming language ( this can be changed as needed during the project execution)  
+
+Only one student of each team needs to submit. Your submission should be in a single PDF file.
+
+Suggested Data Sources. You may choose dataset from any other sources  as  well.

@@ -1,0 +1,9 @@
+We want to detect insider trading on prediction markets like Polymarket. The idea is to look at resolved contracts —
+  where we already know the outcome — and work backwards to find wallets that consistently placed large, correct bets   
+  before the news broke publicly. We'd join prediction market transaction data against a news timeline from something
+  like GDELT or NewsAPI, and score each wallet on how often they were early and right. Wallets that are statistically
+  too prescient get flagged. The big data angle is the multi-source join — blockchain trade logs, news event streams,
+  and contract metadata — plus we'd use Spark for streaming and SQL, HDFS/MapReduce for historical backfill, Hive/Tez
+  for warehousing, MongoDB for the unstructured news data, and MLlib and WEKA for classification and clustering. The
+  long-term goal is to validate the model forward — train on resolved contracts, then apply it to open markets and see
+  if the flagged wallets keep being right.
