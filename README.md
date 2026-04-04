@@ -29,6 +29,7 @@ collect/             Data download scripts (one per data source)
   fetch_prices.py      Price history from CLOB API
   fetch_trades.py      Trade records from Data API
   fetch_wallets.py     On-chain fills with wallet addresses from Goldsky subgraph
+  extract_ticks.py     Derive per-trade tick prices from wallet fills
 data/                Raw downloads (gitignored), one .jsonl per market per type
 sync/                Data storage and sync between teammates (Shwetanshu)
 pipeline/            PySpark processing (spike detection, scoring)
@@ -45,17 +46,20 @@ All scripts read from `config/markets.json` and write JSONL to `data/`.
 pip install py-clob-client  # optional, scripts use urllib directly
 
 # fetch everything (resolved markets are one-shot, active markets are incremental)
-python collect/fetch_metadata.py
-python collect/fetch_prices.py
-python collect/fetch_trades.py
-python collect/fetch_wallets.py
+python3 collect/fetch_metadata.py
+python3 collect/fetch_prices.py
+python3 collect/fetch_trades.py
+python3 collect/fetch_wallets.py
+
+# derive tick-by-tick prices from wallet fills
+python3 collect/extract_ticks.py
 ```
 
 For active markets, run price and trade collection every 6 hours:
 ```bash
 crontab -e
 # add:
-0 */6 * * * cd /path/to/CS-GY6513-FinalProject && python collect/fetch_prices.py && python collect/fetch_trades.py
+0 */6 * * * cd /path/to/CS-GY6513-FinalProject && python3 collect/fetch_prices.py && python3 collect/fetch_trades.py
 ```
 
 ## Pipeline (4 stages)
